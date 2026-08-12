@@ -1,0 +1,380 @@
+/* =========================================
+   GOOGLE FONT
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;500;600;700&display=swap');
+
+
+/* =========================================
+   ROOT VARIABLES
+========================================= */
+
+:root {
+    --primary-color: #6c63ff;
+    --secondary-color: #f4f3ff;
+    --background-color: #f5f6fa;
+    --card-color: #ffffff;
+    --text-color: #222222;
+    --muted-color: #777777;
+    --border-color: #eeeeee;
+    --hover-color: #e9e7ff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: var(--muted-color);
+    font-size: 15px;
+}
+
+
+/* =========================================
+   CLOCK SECTION
+========================================= */
+
+.clock-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   CLOCK CARD
+========================================= */
+
+.clock-card {
+    width: 100%;
+    max-width: 650px;
+    background: var(--card-color);
+    padding: 35px 25px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+
+/* =========================================
+   DAY
+========================================= */
+
+.day {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+
+/* =========================================
+   DATE
+========================================= */
+
+.date {
+    font-size: 15px;
+    color: var(--muted-color);
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   TIME
+========================================= */
+
+.time {
+    font-size: 55px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   CALENDAR SECTION
+========================================= */
+
+.calendar-section {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* =========================================
+   CALENDAR CARD
+========================================= */
+
+.calendar-card {
+    width: 100%;
+    max-width: 650px;
+    background: var(--card-color);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================
+   CALENDAR HEADER
+========================================= */
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   NAVIGATION BUTTONS
+========================================= */
+
+.nav-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+
+/* =========================================
+   TODAY BUTTON
+========================================= */
+
+.today-btn {
+    display: block;
+    margin: 0 auto 25px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    background: var(--primary-color);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.today-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   WEEKDAYS
+========================================= */
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.weekdays div {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted-color);
+    padding: 10px 0;
+}
+
+
+/* =========================================
+   CALENDAR DAYS
+========================================= */
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-days div {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+
+/* =========================================
+   DATE HOVER
+========================================= */
+
+.calendar-days div:hover {
+    background: var(--hover-color);
+    color: var(--primary-color);
+}
+
+
+/* =========================================
+   TODAY DATE
+========================================= */
+
+.calendar-days .today {
+    background: var(--primary-color);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   SELECTED DATE
+========================================= */
+
+.calendar-days .selected {
+    border: 2px solid var(--primary-color);
+}
+
+
+/* =========================================
+   SELECTED DATE SECTION
+========================================= */
+
+.selected-date-section {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.selected-date-section p {
+    color: var(--muted-color);
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+        padding: 25px 0;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .time {
+        font-size: 38px;
+    }
+
+    .clock-card {
+        padding: 28px 15px;
+    }
+
+    .calendar-card {
+        padding: 20px 12px;
+    }
+
+    .calendar-header h2 {
+        font-size: 18px;
+    }
+
+    .calendar-days {
+        gap: 4px;
+    }
+
+    .calendar-days div {
+        height: 40px;
+        font-size: 13px;
+    }
+
+    .weekdays div {
+        font-size: 11px;
+    }
+}
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .clock-card,
+    .calendar-card {
+        max-width: 600px;
+    }
+
+    .time {
+        font-size: 48px;
+    }
+
+    .calendar-card {
+        padding: 25px;
+    }
+}
