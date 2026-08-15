@@ -8,7 +8,20 @@ const dateElement = document.getElementById("date");
 const timeElement = document.getElementById("time");
 
 
-// Function to update clock
+// =========================================
+// TIME FORMAT
+// =========================================
+
+// false = 12-hour format
+// true  = 24-hour format
+
+let is24Hour = false;
+
+
+// =========================================
+// UPDATE DIGITAL CLOCK
+// =========================================
+
 function updateClock() {
 
     // Get current date and time
@@ -43,7 +56,7 @@ function updateClock() {
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
-        hour12: true
+        hour12: !is24Hour
     });
 
 
@@ -60,39 +73,46 @@ function updateClock() {
 
 
 // =========================================
-// INITIAL CALL
+// INITIAL CLOCK LOAD
 // =========================================
 
 updateClock();
 
 
 // =========================================
-// UPDATE EVERY SECOND
+// UPDATE CLOCK EVERY SECOND
 // =========================================
 
 setInterval(updateClock, 1000);
+
 
 // =========================================
 // DYNAMIC CALENDAR
 // =========================================
 
 // Get calendar elements
-const monthYearElement = document.getElementById("month-year");
-const calendarDaysElement = document.getElementById("calendar-days");
+const monthYearElement =
+    document.getElementById("month-year");
 
-const previousMonthButton = document.getElementById("prev-month");
-const nextMonthButton = document.getElementById("next-month");
-const todayButton = document.getElementById("today-btn");
+const calendarDaysElement =
+    document.getElementById("calendar-days");
 
-const selectedDateElement = document.getElementById("selected-date");
+const previousMonthButton =
+    document.getElementById("prev-month");
+
+const nextMonthButton =
+    document.getElementById("next-month");
+
+const todayButton =
+    document.getElementById("today-btn");
+
+const selectedDateElement =
+    document.getElementById("selected-date");
 
 
 // =========================================
 // CURRENT CALENDAR DATE
 // =========================================
-
-// This variable stores the month/year currently
-// being displayed in the calendar.
 
 let calendarDate = new Date();
 
@@ -100,9 +120,6 @@ let calendarDate = new Date();
 // =========================================
 // TODAY'S DATE
 // =========================================
-
-// Store today's actual date separately.
-// This will help us highlight today's date.
 
 const today = new Date();
 
@@ -166,7 +183,8 @@ function generateCalendar() {
     // NUMBER OF DAYS IN MONTH
     // =========================================
 
-    const lastDay = new Date(year, month + 1, 0);
+    const lastDay =
+        new Date(year, month + 1, 0);
 
     const totalDays = lastDay.getDate();
 
@@ -177,7 +195,8 @@ function generateCalendar() {
 
     for (let i = 0; i < firstDayIndex; i++) {
 
-        const emptyDay = document.createElement("div");
+        const emptyDay =
+            document.createElement("div");
 
         calendarDaysElement.appendChild(emptyDay);
     }
@@ -189,7 +208,8 @@ function generateCalendar() {
 
     for (let day = 1; day <= totalDays; day++) {
 
-        const dayElement = document.createElement("div");
+        const dayElement =
+            document.createElement("div");
 
         dayElement.textContent = day;
 
@@ -212,47 +232,56 @@ function generateCalendar() {
         // DATE CLICK
         // =========================================
 
-        dayElement.addEventListener("click", function () {
+        dayElement.addEventListener(
+            "click",
+            function () {
 
-            // Remove previous selected date
-            document
-                .querySelectorAll(".calendar-days .selected")
-                .forEach(function (element) {
+                // Remove previous selection
+                document
+                    .querySelectorAll(
+                        ".calendar-days .selected"
+                    )
+                    .forEach(function (element) {
 
-                    element.classList.remove("selected");
-                });
-
-
-            // Add selected class
-            dayElement.classList.add("selected");
-
-
-            // Create selected date
-            const selectedDate = new Date(
-                year,
-                month,
-                day
-            );
+                        element.classList.remove(
+                            "selected"
+                        );
+                    });
 
 
-            // Format selected date
-            const formattedDate =
-                selectedDate.toLocaleDateString("en-US", {
-                    weekday: "long",
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric"
-                });
+                // Add selected class
+                dayElement.classList.add("selected");
 
 
-            // Display selected date
-            selectedDateElement.textContent =
-                `Selected Date: ${formattedDate}`;
-        });
+                // Create selected date
+                const selectedDate =
+                    new Date(year, month, day);
+
+
+                // Format selected date
+                const formattedDate =
+                    selectedDate.toLocaleDateString(
+                        "en-US",
+                        {
+                            weekday: "long",
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric"
+                        }
+                    );
+
+
+                // Display selected date
+                selectedDateElement.textContent =
+                    `Selected Date: ${formattedDate}`;
+            }
+        );
 
 
         // Add date to calendar
-        calendarDaysElement.appendChild(dayElement);
+        calendarDaysElement.appendChild(
+            dayElement
+        );
     }
 }
 
@@ -261,41 +290,49 @@ function generateCalendar() {
 // PREVIOUS MONTH
 // =========================================
 
-previousMonthButton.addEventListener("click", function () {
+previousMonthButton.addEventListener(
+    "click",
+    function () {
 
-    calendarDate.setMonth(
-        calendarDate.getMonth() - 1
-    );
+        calendarDate.setMonth(
+            calendarDate.getMonth() - 1
+        );
 
-    generateCalendar();
-});
+        generateCalendar();
+    }
+);
 
 
 // =========================================
 // NEXT MONTH
 // =========================================
 
-nextMonthButton.addEventListener("click", function () {
+nextMonthButton.addEventListener(
+    "click",
+    function () {
 
-    calendarDate.setMonth(
-        calendarDate.getMonth() + 1
-    );
+        calendarDate.setMonth(
+            calendarDate.getMonth() + 1
+        );
 
-    generateCalendar();
-});
+        generateCalendar();
+    }
+);
 
 
 // =========================================
 // TODAY BUTTON
 // =========================================
 
-todayButton.addEventListener("click", function () {
+todayButton.addEventListener(
+    "click",
+    function () {
 
-    // Reset calendar to today's date
-    calendarDate = new Date();
+        calendarDate = new Date();
 
-    generateCalendar();
-});
+        generateCalendar();
+    }
+);
 
 
 // =========================================
@@ -303,3 +340,246 @@ todayButton.addEventListener("click", function () {
 // =========================================
 
 generateCalendar();
+
+
+// =========================================
+// DARK / LIGHT MODE
+// =========================================
+
+// Get theme button
+const themeToggle =
+    document.getElementById("theme-toggle");
+
+
+// =========================================
+// CHANGE THEME
+// =========================================
+
+themeToggle.addEventListener(
+    "click",
+    function () {
+
+        // Toggle dark mode class
+        document.body.classList.toggle(
+            "dark-mode"
+        );
+
+
+        // Check current theme
+        const isDarkMode =
+            document.body.classList.contains(
+                "dark-mode"
+            );
+
+
+        // =========================================
+        // UPDATE BUTTON TEXT
+        // =========================================
+
+        if (isDarkMode) {
+
+            themeToggle.textContent =
+                "☀️ Light Mode";
+
+        } else {
+
+            themeToggle.textContent =
+                "🌙 Dark Mode";
+        }
+
+
+        // =========================================
+        // SAVE THEME
+        // =========================================
+
+        localStorage.setItem(
+            "theme",
+            isDarkMode ? "dark" : "light"
+        );
+    }
+);
+
+
+// =========================================
+// LOAD SAVED THEME
+// =========================================
+
+const savedTheme =
+    localStorage.getItem("theme");
+
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add(
+        "dark-mode"
+    );
+
+    themeToggle.textContent =
+        "☀️ Light Mode";
+}
+
+
+// =========================================
+// 12H / 24H FORMAT TOGGLE
+// =========================================
+
+// Get format button
+const formatToggle =
+    document.getElementById("format-toggle");
+
+
+// =========================================
+// CHANGE TIME FORMAT
+// =========================================
+
+formatToggle.addEventListener(
+    "click",
+    function () {
+
+        // Switch format
+        is24Hour = !is24Hour;
+
+
+        // =========================================
+        // UPDATE BUTTON TEXT
+        // =========================================
+
+        if (is24Hour) {
+
+            formatToggle.textContent =
+                "🕐 12H Format";
+
+        } else {
+
+            formatToggle.textContent =
+                "🕐 24H Format";
+        }
+
+
+        // Immediately update clock
+        updateClock();
+
+
+        // Immediately update world clocks
+        updateWorldClocks();
+    }
+);
+
+
+// =========================================
+// WORLD CLOCKS
+// =========================================
+
+function updateWorldClocks() {
+
+    const now = new Date();
+
+
+    // =========================================
+    // KOLKATA
+    // =========================================
+
+    const kolkataTime =
+        now.toLocaleTimeString("en-US", {
+
+            timeZone: "Asia/Kolkata",
+
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+
+            hour12: !is24Hour
+        });
+
+
+    // =========================================
+    // LONDON
+    // =========================================
+
+    const londonTime =
+        now.toLocaleTimeString("en-US", {
+
+            timeZone: "Europe/London",
+
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+
+            hour12: !is24Hour
+        });
+
+
+    // =========================================
+    // NEW YORK
+    // =========================================
+
+    const newYorkTime =
+        now.toLocaleTimeString("en-US", {
+
+            timeZone: "America/New_York",
+
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+
+            hour12: !is24Hour
+        });
+
+
+    // =========================================
+    // TOKYO
+    // =========================================
+
+    const tokyoTime =
+        now.toLocaleTimeString("en-US", {
+
+            timeZone: "Asia/Tokyo",
+
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+
+            hour12: !is24Hour
+        });
+
+
+    // =========================================
+    // DISPLAY WORLD CLOCKS
+    // =========================================
+
+    document.getElementById(
+        "kolkata-time"
+    ).textContent = kolkataTime;
+
+
+    document.getElementById(
+        "london-time"
+    ).textContent = londonTime;
+
+
+    document.getElementById(
+        "newyork-time"
+    ).textContent = newYorkTime;
+
+
+    document.getElementById(
+        "tokyo-time"
+    ).textContent = tokyoTime;
+}
+
+
+// =========================================
+// INITIAL WORLD CLOCK LOAD
+// =========================================
+
+updateWorldClocks();
+
+
+// =========================================
+// UPDATE WORLD CLOCKS EVERY SECOND
+// =========================================
+
+setInterval(
+    updateWorldClocks,
+    1000
+);

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,27 +14,66 @@
 
     <main class="container">
 
-        <!-- Header -->
+        <!-- =========================================
+             HEADER
+        ========================================== -->
+
         <header class="header">
+
             <h1>Digital Clock & Calendar</h1>
-            <p>Stay updated with the current time and date</p>
+
+            <p>
+                Stay updated with the current time and date
+            </p>
+
+            <!-- Controls -->
+            <div class="controls">
+
+                <!-- Dark / Light Mode -->
+                <button
+                    id="theme-toggle"
+                    class="control-btn">
+                    🌙 Dark Mode
+                </button>
+
+                <!-- 12H / 24H Format -->
+                <button
+                    id="format-toggle"
+                    class="control-btn">
+                    🕐 24H Format
+                </button>
+
+            </div>
+
         </header>
 
 
-        <!-- Clock Section -->
+        <!-- =========================================
+             DIGITAL CLOCK
+        ========================================== -->
+
         <section class="clock-section">
 
             <div class="clock-card">
 
-                <div class="day" id="day">
+                <!-- Day -->
+                <div
+                    class="day"
+                    id="day">
                     Thursday
                 </div>
 
-                <div class="date" id="date">
+                <!-- Date -->
+                <div
+                    class="date"
+                    id="date">
                     13 August 2026
                 </div>
 
-                <div class="time" id="time">
+                <!-- Time -->
+                <div
+                    class="time"
+                    id="time">
                     11:42:36 PM
                 </div>
 
@@ -42,7 +82,10 @@
         </section>
 
 
-        <!-- Calendar Section -->
+        <!-- =========================================
+             CALENDAR
+        ========================================== -->
+
         <section class="calendar-section">
 
             <div class="calendar-card">
@@ -50,24 +93,43 @@
                 <!-- Calendar Header -->
                 <div class="calendar-header">
 
-                    <button id="prev-month" class="nav-btn">
+                    <!-- Previous Month -->
+                    <button
+                        id="prev-month"
+                        class="nav-btn"
+                        aria-label="Previous Month">
+
                         &#10094;
+
                     </button>
 
+
+                    <!-- Month & Year -->
                     <h2 id="month-year">
                         August 2026
                     </h2>
 
-                    <button id="next-month" class="nav-btn">
+
+                    <!-- Next Month -->
+                    <button
+                        id="next-month"
+                        class="nav-btn"
+                        aria-label="Next Month">
+
                         &#10095;
+
                     </button>
 
                 </div>
 
 
                 <!-- Today Button -->
-                <button id="today-btn" class="today-btn">
+                <button
+                    id="today-btn"
+                    class="today-btn">
+
                     Today
+
                 </button>
 
 
@@ -86,7 +148,9 @@
 
 
                 <!-- Calendar Dates -->
-                <div class="calendar-days" id="calendar-days">
+                <div
+                    class="calendar-days"
+                    id="calendar-days">
 
                     <!-- JavaScript will generate dates here -->
 
@@ -97,7 +161,10 @@
         </section>
 
 
-        <!-- Selected Date -->
+        <!-- =========================================
+             SELECTED DATE
+        ========================================== -->
+
         <section class="selected-date-section">
 
             <p id="selected-date">
@@ -106,11 +173,100 @@
 
         </section>
 
+
+        <!-- =========================================
+             WORLD CLOCKS
+        ========================================== -->
+
+        <section class="world-clock-section">
+
+            <div class="world-clock-card">
+
+                <h2>🌍 World Clocks</h2>
+
+
+                <div class="world-clocks">
+
+
+                    <!-- Kolkata -->
+                    <div class="timezone-card">
+
+                        <h3>🇮🇳 Kolkata</h3>
+
+                        <p id="kolkata-time">
+                            --:--:--
+                        </p>
+
+                    </div>
+
+
+                    <!-- London -->
+                    <div class="timezone-card">
+
+                        <h3>🇬🇧 London</h3>
+
+                        <p id="london-time">
+                            --:--:--
+                        </p>
+
+                    </div>
+
+
+                    <!-- New York -->
+                    <div class="timezone-card">
+
+                        <h3>🇺🇸 New York</h3>
+
+                        <p id="newyork-time">
+                            --:--:--
+                        </p>
+
+                    </div>
+
+
+                    <!-- Tokyo -->
+                    <div class="timezone-card">
+
+                        <h3>🇯🇵 Tokyo</h3>
+
+                        <p id="tokyo-time">
+                            --:--:--
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
 
 
-    <!-- JavaScript -->
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="footer">
+
+        <p>
+            &copy; 2026 Digital Clock & Calendar
+        </p>
+
+        <p>
+            Built with ❤️ by Krishti Das
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
     <script src="script.js"></script>
 
 </body>
+
 </html>
